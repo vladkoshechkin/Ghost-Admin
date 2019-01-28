@@ -2,9 +2,9 @@
     <div id="entry-controls">
         <div class="{{if isViewingSubview 'settings-menu-pane-out-left' 'settings-menu-pane-in'}} settings-menu settings-menu-pane">
             <div class="settings-menu-header">
-                <h4>Post Settings</h4>
+                <h4>Настройки сообщений</h4>
                 <button class="close settings-menu-header-action" {{action "closeMenus" target=ui}} data-test-close-settings-menu>
-                    {{svg-jar "close"}}<span class="hidden">Close</span>
+                    {{svg-jar "close"}}<span class="hidden">Закрыть</span>
                 </button>
             </div>
             <div class="settings-menu-content">
@@ -17,7 +17,7 @@
                 }}
                 <form>
                 <div class="form-group">
-                    <label for="url">Post URL</label>
+                    <label for="url">Опубликовать URL</label>
                     {{!-- new posts don't have a preview link --}}
                     {{#unless post.isNew}}
                         {{#if post.isPublished}}
@@ -47,10 +47,10 @@
 
                 <div class="form-group">
                     {{#if (or post.isDraft post.isPublished post.pastScheduledTime)}}
-                        <label>Publish Date</label>
+                        <label>Дата публикации</label>
                     {{else}}
-                        <label>Scheduled Date</label>
-                        <p>Use the publish menu to re-schedule</p>
+                        <label>Запланированная дата</label>
+                        <p>Используйте меню публикации, чтобы изменить расписание</p>
                     {{/if}}
                     {{gh-date-time-picker
                         date=post.publishedAtBlogDate
@@ -68,13 +68,13 @@
 
                 {{#unless session.user.isContributor}}
                 <div class="form-group">
-                    <label for="tag-input">Tags</label>
+                    <label for="tag-input">Теги</label>
                     {{gh-psm-tags-input post=post triggerId="tag-input"}}
                 </div>
                 {{/unless}}
 
                 {{#gh-form-group errors=post.errors hasValidated=post.hasValidated property="customExcerpt"}}
-                    <label for="custom-excerpt">Excerpt</label>
+                    <label for="custom-excerpt">Выбор</label>
                     {{gh-textarea
                         class="post-setting-custom-excerpt"
                         id="custom-excerpt"
@@ -89,7 +89,7 @@
 
                 {{#unless session.user.isAuthorOrContributor}}
                     {{#gh-form-group class="for-select" errors=post.errors hasValidated=post.hasValidated property="authors" data-test-input="authors"}}
-                        <label for="author-list">Authors</label>
+                        <label for="author-list">Авторы</label>
                         {{gh-psm-authors-input selectedAuthors=post.authors updateAuthors=(action "changeAuthors") triggerId="author-list"}}
                         {{gh-error-message errors=post.errors property="authors" data-test-error="authors"}}
                     {{/gh-form-group}}
@@ -99,14 +99,14 @@
                     <li class="nav-list-item" {{action "showSubview" "meta-data"}} data-test-button="meta-data">
                         <button type="button">
                             <b>Meta Data</b>
-                            <span>Extra content for search engines</span>
+                            <span>Дополнительный контент для поисковых систем</span>
                         </button>
                         {{svg-jar "arrow-right"}}
                     </li>
                     <li class="nav-list-item" {{action "showSubview" "twitter-data"}} data-test-button="twitter-data">
                         <button type="button">
                             <b>Twitter Card</b>
-                            <span>Customise structured data for Twitter</span>
+                            <span>Настройте структурированные данные для Twitter</span>
                         </button>
                         {{svg-jar "arrow-right"}}
                     </li>
@@ -120,7 +120,7 @@
                     <li class="nav-list-item" {{action "showSubview" "codeinjection"}} data-test-button="codeinjection">
                         <button type="button">
                             <b>Code Injection</b>
-                            <span>Add styles/scripts to the header &amp; footer</span>
+                            <span>Добавить стили/скрипты в шапку &amp; footer</span>
                         </button>
                         {{svg-jar "arrow-right"}}
                     </li>
@@ -138,7 +138,7 @@
                             data-test-checkbox="static-page"
                         >
                         <span class="input-toggle-component"></span>
-                        <p>Turn this post into a page</p>
+                        <p>Опубликуйте этот пост на страницу</p>
                     </label>
 
                     <label class="checkbox" for="featured" {{action "toggleFeatured" bubbles="false"}}>
@@ -150,7 +150,7 @@
                             data-test-checkbox="featured"
                         >
                         <span class="input-toggle-component"></span>
-                        <p>Feature this post</p>
+                        <p>Характеристика этого поста</p>
                     </label>
                 </div>
 
@@ -159,7 +159,7 @@
                     onTemplateSelect=(action (mut post.customTemplate))}}
 
                 {{#unless post.isNew}}
-                    <button type="button" class="gh-btn gh-btn-link gh-btn-icon settings-menu-delete-button" {{action "deletePost"}}><span>{{svg-jar "trash"}} Delete Post</span></button>
+                    <button type="button" class="gh-btn gh-btn-link gh-btn-icon settings-menu-delete-button" {{action "deletePost"}}><span>{{svg-jar "trash"}} Удалить пост</span></button>
                 {{/unless}}
 
                 </form>
@@ -171,7 +171,7 @@
                 {{#if isViewingSubview}}
                     {{#if (eq subview "meta-data")}}
                         <div class="settings-menu-header subview">
-                            <button {{action "closeSubview"}} class="back settings-menu-header-action" data-test-button="close-psm-subview">{{svg-jar "arrow-left"}}<span class="hidden">Back</span></button>
+                            <button {{action "closeSubview"}} class="back settings-menu-header-action" data-test-button="close-psm-subview">{{svg-jar "arrow-left"}}<span class="hidden">Назад</span></button>
                             <h4>Meta Data</h4>
                             <div style="width:23px;"></div>
                         </div>
@@ -189,7 +189,7 @@
                                         focus-out=(action "setMetaTitle" metaTitleScratch)
                                         stopEnterKeyDownPropagation=true
                                         data-test-field="meta-title"}}
-                                    <p>Recommended: <b>70</b> characters. You’ve used {{gh-count-down-characters metaTitleScratch 70}}</p>
+                                    <p>Рекомендуется: <b>70</b> символов. Вы используйте {{gh-count-down-characters metaTitleScratch 70}}</p>
                                     {{gh-error-message errors=post.errors property="meta-title"}}
                                 {{/gh-form-group}}
 
@@ -204,12 +204,12 @@
                                         focus-out=(action "setMetaDescription" metaDescriptionScratch)
                                         stopEnterKeyDownPropagation="true"
                                         data-test-field="meta-description"}}
-                                    <p>Recommended: <b>156</b> characters. You’ve used {{gh-count-down-characters metaDescriptionScratch 156}}</p>
+                                    <p>Рекомендуется: <b>156</b> символов. Вы используйте {{gh-count-down-characters metaDescriptionScratch 156}}</p>
                                     {{gh-error-message errors=post.errors property="meta-description"}}
                                 {{/gh-form-group}}
 
                                 <div class="form-group">
-                                    <label>Search Engine Result Preview</label>
+                                    <label>Предварительный просмотр результатов поисковой системы</label>
                                     <div class="seo-preview">
                                         <div class="seo-preview-title">{{truncate seoTitle 70}}</div>
                                         <div class="seo-preview-link">{{truncate seoURL 70}}</div>
@@ -222,7 +222,7 @@
 
                     {{#if (eq subview "twitter-data")}}
                         <div class="settings-menu-header subview">
-                            <button {{action "closeSubview"}} class="back settings-menu-header-action" data-test-button="close-psm-subview">{{svg-jar "arrow-left"}}<span class="hidden">Back</span></button>
+                            <button {{action "closeSubview"}} class="back settings-menu-header-action" data-test-button="close-psm-subview">{{svg-jar "arrow-left"}}<span class="hidden">Назад</span></button>
                             <h4>Twitter Card</h4>
                             <div style="width:23px;"></div>
                         </div>
@@ -293,7 +293,7 @@
 
                     {{#if (eq subview "facebook-data")}}
                         <div class="settings-menu-header subview">
-                            <button {{action "closeSubview"}} class="back settings-menu-header-action" data-test-button="close-psm-subview">{{svg-jar "arrow-left"}}<span class="hidden">Back</span></button>
+                            <button {{action "closeSubview"}} class="back settings-menu-header-action" data-test-button="close-psm-subview">{{svg-jar "arrow-left"}}<span class="hidden">Назад</span></button>
                             <h4>Facebook Card</h4>
                             <div style="width:23px;"></div>
                         </div>
@@ -302,7 +302,7 @@
                             <form {{action "discardEnter" on="submit"}}>
                                 {{gh-image-uploader-with-preview
                                     image=post.ogImage
-                                    text="Add Facebook image"
+                                    text="Добавить изображение Facebook"
                                     allowUnsplash=true
                                     update=(action "setOgImage")
                                     remove=(action "clearOgImage")
@@ -338,7 +338,7 @@
                                 {{/gh-form-group}}
 
                                 <div class="form-group">
-                                    <label>Preview</label>
+                                    <label>Предварительный просмотр</label>
                                     <div class="gh-og-preview">
                                         {{#if facebookImage}}
                                         <div class="gh-og-preview-image" style={{background-image-style facebookImage}}></div>
@@ -363,8 +363,8 @@
 
                     {{#if (eq subview "codeinjection")}}
                         <div class="settings-menu-header subview">
-                            <button {{action "closeSubview"}} class="back settings-menu-header-action" data-test-button="close-psm-subview">{{svg-jar "arrow-left"}}<span class="hidden">Back</span></button>
-                            <h4>Code Injection</h4>
+                            <button {{action "closeSubview"}} class="back settings-menu-header-action" data-test-button="close-psm-subview">{{svg-jar "arrow-left"}}<span class="hidden">Назад</span></button>
+                            <h4>Внедрение кода</h4>
                             <div style="width:23px;"></div>
                         </div>
 
