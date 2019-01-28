@@ -17,7 +17,7 @@
             remove=(action "clearCoverImage")}}
         <form>
             {{#gh-form-group errors=tag.errors hasValidated=tag.hasValidated property="name"}}
-                <label for="tag-name">Name</label>
+                <label for="tag-name">Название</label>
                 {{gh-text-input
                     id="tag-name"
                     name="name"
@@ -40,7 +40,7 @@
             {{/gh-form-group}}
 
             {{#gh-form-group errors=tag.errors hasValidated=tag.hasValidated property="description"}}
-                <label for="tag-description">Description</label>
+                <label for="tag-description">Описание</label>
                 {{gh-textarea
                     id="tag-description"
                     name="description"
@@ -49,21 +49,21 @@
                     focus-out=(action 'setProperty' 'description' scratchDescription)
                 }}
                 {{gh-error-message errors=tag.errors property="description"}}
-                <p>Maximum: <b>500</b> characters. You’ve used {{gh-count-down-characters scratchDescription 500}}</p>
+                <p>Максимум: <b>500</b> символов. Вы используйте {{gh-count-down-characters scratchDescription 500}}</p>
             {{/gh-form-group}}
 
             <ul class="nav-list nav-list-block">
                 <li class="nav-list-item" {{action 'openMeta'}}>
                     <button type="button" class="meta-data-button">
                         <b>Meta Data</b>
-                        <span>Extra content for SEO and social media.</span>
+                        <span>Дополнительный контент для SEO и социальных сетей.</span>
                     </button>
                     {{svg-jar "arrow-right"}}
                 </li>
             </ul>
 
             {{#unless tag.isNew}}
-                <button type="button" class="gh-btn gh-btn-link gh-btn-sm gh-btn-icon settings-menu-delete-button" {{action "deleteTag"}}><span>{{svg-jar "trash"}} Delete Tag</span></button>
+                <button type="button" class="gh-btn gh-btn-link gh-btn-sm gh-btn-icon settings-menu-delete-button" {{action "deleteTag"}}><span>{{svg-jar "trash"}} Удалить тег</span></button>
             {{/unless}}
         </form>
     </div>
@@ -71,7 +71,7 @@
 
 <div class="{{if isViewingSubview 'settings-menu-pane-in' 'settings-menu-pane-out-right'}} settings-menu settings-menu-pane tag-meta-settings-pane">
     <div class="settings-menu-header subview">
-        <button {{action "closeMeta"}} class="back settings-menu-header-action">{{svg-jar "arrow-left"}}<span class="hidden">Back</span></button>
+        <button {{action "closeMeta"}} class="back settings-menu-header-action">{{svg-jar "arrow-left"}}<span class="hidden">Назад</span></button>
         <h4>Meta Data</h4>
         <div style="width:23px;">{{!flexbox space-between}}</div>
     </div>
@@ -87,7 +87,7 @@
                     input=(action (mut scratchMetaTitle) value="target.value")
                     focus-out=(action "setProperty" "metaTitle" scratchMetaTitle)}}
                 {{gh-error-message errors=tag.errors property="metaTitle"}}
-                <p>Recommended: <b>70</b> characters. You’ve used {{gh-count-down-characters scratchMetaTitle 70}}</p>
+                <p>Рекомендуется: <b>70</b> символов. Вы используйте {{gh-count-down-characters scratchMetaTitle 70}}</p>
             {{/gh-form-group}}
 
             {{#gh-form-group errors=tag.errors hasValidated=tag.hasValidated property="metaDescription"}}
@@ -100,11 +100,11 @@
                     focus-out=(action "setProperty" "metaDescription" scratchMetaDescription)
                 }}
                 {{gh-error-message errors=tag.errors property="metaDescription"}}
-                <p>Recommended: <b>156</b> characters. You’ve used {{gh-count-down-characters scratchMetaDescription 156}}</p>
+                <p>Рекомендуется: <b>156</b> символов. Вы используйте {{gh-count-down-characters scratchMetaDescription 156}}</p>
             {{/gh-form-group}}
 
             <div class="form-group">
-                <label>Search Engine Result Preview</label>
+                <label>Предварительный просмотр результатов поисковой системы</label>
                 <div class="seo-preview">
                     <div class="seo-preview-title">{{seoTitle}}</div>
                     <div class="seo-preview-link">{{seoURL}}</div>
