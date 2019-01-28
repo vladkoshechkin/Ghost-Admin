@@ -22,11 +22,11 @@
                     {{#unless post.isNew}}
                         {{#if post.isPublished}}
                         <a class="post-view-link" target="_blank" href="{{post.url}}">
-                            View post {{svg-jar "external"}}
+                            Посмотреть пост {{svg-jar "external"}}
                         </a>
                         {{else}}
                         <a class="post-view-link" target="_blank" href="{{post.previewUrl}}">
-                            Preview {{svg-jar "external"}}
+                           Предварительный просмотр {{svg-jar "external"}}
                         </a>
                         {{/if}}
                     {{/unless}}
@@ -232,7 +232,7 @@
                             <form {{action "discardEnter" on="submit"}}>
                                 {{gh-image-uploader-with-preview
                                     image=post.twitterImage
-                                    text="Add Twitter image"
+                                    text="Добавить изображение Twitter"
                                     allowUnsplash=true
                                     update=(action "setTwitterImage")
                                     remove=(action "clearTwitterImage")
@@ -268,7 +268,7 @@
                                 {{/gh-form-group}}
 
                                 <div class="form-group">
-                                    <label>Preview</label>
+                                    <label>Предварительный просмотр</label>
                                     <div class="gh-twitter-preview">
                                         {{#if twitterImage}}
                                         <div class="gh-twitter-preview-image" style={{background-image-style twitterImage}}></div>
