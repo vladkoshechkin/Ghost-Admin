@@ -4,10 +4,10 @@
 <a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Закрыть</span></a>
 
 <div class="modal-body">
-    <strong>WARNING:</strong> Этот пользователь больше не сможет войти, но его сообщения будут сохранены.
+    <strong>Предупреждение:</strong> Этот пользователь больше не сможет войти, но его сообщения будут сохранены.
 </div>
 
 <div class="modal-footer">
-    <button {{action "closeModal"}} class="gh-btn"><span>Cancel</span></button>
+    <button {{action "closeModal"}} class="gh-btn"><span>Отмена</span></button>
     {{gh-task-button "Suspend" successText="Suspended" task=suspendUser class="gh-btn gh-btn-red gh-btn-icon" data-test-modal-confirm=true}}
 </div>
