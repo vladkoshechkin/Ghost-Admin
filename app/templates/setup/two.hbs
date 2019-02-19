@@ -1,5 +1,5 @@
 <header>
-    <h1>Create your account</h1>
+    <h1>Создать учетную запись</h1>
 </header>
 
 <form id="setup" class="gh-flow-create">
@@ -29,7 +29,7 @@
     {{/gh-form-group}}
 
     {{#gh-form-group errors=errors hasValidated=hasValidated property="name"}}
-        <label for="name">Full name</label>
+        <label for="name">Полное имя</label>
         <span class="gh-input-icon gh-icon-user">
             {{svg-jar "user-circle"}}
             {{gh-text-input
@@ -47,7 +47,7 @@
     {{/gh-form-group}}
 
     {{#gh-form-group errors=errors hasValidated=hasValidated property="email"}}
-        <label for="email">Email address</label>
+        <label for="email">Email адрес</label>
         <span class="gh-input-icon gh-icon-mail">
             {{svg-jar "email"}}
             {{gh-text-input
@@ -66,7 +66,7 @@
     {{/gh-form-group}}
 
     {{#gh-form-group errors=errors hasValidated=hasValidated property="password"}}
-        <label for="password">Password</label>
+        <label for="password">Пароль</label>
         <span class="gh-input-icon gh-icon-lock">
             {{svg-jar "lock"}}
             {{gh-text-input
@@ -94,7 +94,7 @@
         {{#if task.isRunning}}
             <span>{{svg-jar "spinner" class="gh-icon-spinner gh-btn-icon-no-margin"}}</span>
         {{else}}
-            <span>Last step: Invite your team {{svg-jar "arrow-right-small" class="gh-btn-icon-right"}}</span>
+            <span>Последний шаг: пригласите свою команду {{svg-jar "arrow-right-small" class="gh-btn-icon-right"}}</span>
         {{/if}}
     {{/gh-task-button}}
 </form>
