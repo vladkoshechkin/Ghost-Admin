@@ -10,7 +10,7 @@
                     <div class="{{ui-text "ts"}} h9 br b--lightgrey pl3 pr4 flex items-center br2 br--left {{unless infoMessage "bg-white"}}">
                         {{#link-to "posts" classNames="blue link fw4 flex items-center" data-test-link="stories"}}
                             {{svg-jar "arrow-left" class="w3 fill-blue mr1 nudge-right--2"}}
-                            Stories
+                            Истории
                         {{/link-to}}
                     </div>
                 {{/if}}
@@ -23,7 +23,7 @@
                     </span>
                 {{#gh-scheduled-post-countdown post=post as |post countdown|}}
                     <time datetime="{{post.publishedAtUTC}}" class="green f8 ml5" data-test-schedule-countdown>
-                        Post will go live {{countdown}}.
+                        Пост реализован в жизнь {{countdown}}.
                     </time>
                 {{/gh-scheduled-post-countdown}}
                 </div>
@@ -35,7 +35,7 @@
                     {{svg-jar "idea" class="w7 h7 fill-blue"}}
                     <p class="ma0 pa0 ml1 nudge-top--2">
                         {{infoMessage}}
-                        <button type="button" class="blue fw5" {{action (mut infoMessage "")}}>Got it</button>
+                        <button type="button" class="blue fw5" {{action (mut infoMessage "")}}>Понятно</button>
                     </p>
                 </div>
             </div>
