@@ -71,7 +71,7 @@
         --}}
         {{gh-koenig-editor
             title=(readonly post.titleScratch)
-            titlePlaceholder="Story Title"
+            titlePlaceholder="Название поста"
             onTitleChange=(action "updateTitleScratch")
             onTitleBlur=(action (perform saveTitle))
             body=(readonly post.scratch)
