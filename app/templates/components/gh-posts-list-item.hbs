@@ -3,7 +3,7 @@
 
 <section class="gh-content-entry-meta">
     {{#if isPage}}
-        <span class="gh-content-status-draft gh-badge gh-badge-black">Страница</span>
+        <span class="gh-content-status-draft gh-badge gh-badge-black">Добавлено в баннер</span>
     {{/if}}
 
     {{#if isScheduled}}
@@ -15,11 +15,11 @@
     {{/if}}
 
     {{#if isFeatured}}
-        <span class="gh-content-status-featured gh-badge gh-badge-blue">Рекомендуемое</span>
+        <span class="gh-content-status-featured gh-badge gh-badge-blue">С фоновым изображением</span>
     {{/if}}
 
     {{#if (and isPublished (not post.page))}}
-        <span class="gh-content-status-published">Опубликованное</span>
+        <span class="gh-content-status-published">Опубликованно</span>
     {{/if}}
 
     by <span class="gh-content-entry-author">{{authorNames}}</span> &mdash;
