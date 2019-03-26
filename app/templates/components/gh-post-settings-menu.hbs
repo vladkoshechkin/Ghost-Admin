@@ -2,7 +2,7 @@
     <div id="entry-controls">
         <div class="{{if isViewingSubview 'settings-menu-pane-out-left' 'settings-menu-pane-in'}} settings-menu settings-menu-pane">
             <div class="settings-menu-header">
-                <h4>Настройки сообщения</h4>
+                <h4>Настройки поста</h4>
                 <button class="close settings-menu-header-action" {{action "closeMenus" target=ui}} data-test-close-settings-menu>
                     {{svg-jar "close"}}<span class="hidden">Закрыть</span>
                 </button>
@@ -10,13 +10,14 @@
             <div class="settings-menu-content">
                 {{gh-image-uploader-with-preview
                     image=post.featureImage
-                    text="Upload post image"
-                    allowUnsplash=true
+                    text="Загрузить изображение"
+                    allowUnsplash=false
                     update=(action "setCoverImage")
                     remove=(action "clearCoverImage")
                 }}
                 <form>
                 <div class="form-group">
+                <!--
                     <label for="url">Опубликовать URL</label>
                     {{!-- new posts don't have a preview link --}}
                     {{#unless post.isNew}}
@@ -30,7 +31,7 @@
                         </a>
                         {{/if}}
                     {{/unless}}
-
+                -->
                     <div class="gh-input-icon gh-icon-link">
                         {{svg-jar "link"}}
                         {{gh-text-input
@@ -105,11 +106,12 @@
                     </li>
                     <li class="nav-list-item" {{action "showSubview" "twitter-data"}} data-test-button="twitter-data">
                         <button type="button">
-                            <b>Twitter Card</b>
-                            <span>Настройте структурированные данные для Twitter</span>
+                            <b>Мобильная версия</b>
+                            <span>Данные для мобильной версии</span>
                         </button>
                         {{svg-jar "arrow-right"}}
                     </li>
+                    <!--
                     <li class="nav-list-item" {{action "showSubview" "facebook-data"}} data-test-button="facebook-data">
                         <button type="button">
                             <b>Facebook Card</b>
@@ -124,6 +126,7 @@
                         </button>
                         {{svg-jar "arrow-right"}}
                     </li>
+                    -->
                 </ul>
 
                 <div class="form-group for-checkbox">
@@ -232,11 +235,12 @@
                             <form {{action "discardEnter" on="submit"}}>
                                 {{gh-image-uploader-with-preview
                                     image=post.twitterImage
-                                    text="Добавить изображение Twitter"
-                                    allowUnsplash=true
+                                    text="Изображение для мобильных устройств"
+                                    allowUnsplash=false
                                     update=(action "setTwitterImage")
                                     remove=(action "clearTwitterImage")
                                 }}
+                                <!--
                                 {{#gh-form-group errors=post.errors hasValidated=post.hasValidated property="twitterTitle"}}
                                     <label for="twitter-title">Twitter Title</label>
                                     {{gh-text-input
@@ -286,6 +290,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                -->
 
                             </form>
                         </div>
